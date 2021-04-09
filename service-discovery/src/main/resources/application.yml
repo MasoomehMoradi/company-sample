@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: serviceDiscovery
+info:
+  app:
+    version: '@project.version@'
+server:
+  port: 9002
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  datacenter: staff-management
+  environment: staffManagerEnvironmemt
+

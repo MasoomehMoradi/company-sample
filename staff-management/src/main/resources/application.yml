@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: staff-management
+  jpa:
+     hibernate:
+       ddl-auto: update
+     #properties:
+       #hibernate:
+        # jdbc:
+           #lob:
+            # non_contextual_creation: true
+     database-platform: org.hibernate.dialect.H2Dialect
+
+  #datasource:
+   #   initialization-mode: always
+    #  platform: postgres
+     # url: jdbc:postgresql://localhost:5432/testdb
+      #username: postgres
+      #password: s$cret
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+
+
+info:
+  app:
+    version: '@project.version@'
+
+server:
+  port: 9003
+
+#--------------------Eureka--------------------------------------------------
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+    prefer-ip-address: true
+    #hostname: localhost
+    # leaseRenewalIntervalInSeconds: 5
+    #leaseExpirationDurationInSeconds: 2
+    #lease-renewal-interval-in-seconds
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:9002/eureka/
+    healthcheck:
+      enabled: true
+      #lease:
+      # duration: 5

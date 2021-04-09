@@ -1,0 +1,75 @@
+info:
+  app:
+    version: '@project.version@'
+
+server:
+  port: 9001
+
+spring:
+  application:
+    name: gateway
+    # cloud:
+    #  loadbalancer:
+    #   ribbon:
+    #    enabled: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1200060000
+ribbon:
+  ReadTimeout: 1200060000
+
+    #zuul:
+    # host:
+    #  time-to-live: -1
+    # connect-timeout-millis: 5000
+    #max-per-route-connections: 10000
+    #max-total-connections: 5000
+    #socket-timeout-millis: 60000
+  #semaphore:
+  # max-semaphores: 500
+
+
+staff-management:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
+    MaxAutoRetries: 0
+    OkToRetryOnAllOperations: false
+    MaxAutoRetriesNextServer: 5
+  #ribbon:
+  # eureka:
+  #  enabled: false
+
+
+zuul:
+  #sensitiveHeaders: Cookie,Set-Cookie
+  #prefix: /api
+  health:
+    enabled: true
+  routes:
+    staff-management:
+      path: "/**"
+      serviceId: staff-management
+      #sensitiveHeaders: Cookie,Set-Cookie
+      # stripPrefix: false
+      #ignoredPatterns: /**/v2/**
+
+  #zull.routes.trproxy.url=http://localhost:4987
+  #proxy.ribbon.listOfServers=http://localhost:4987
+  #zull.ignoredServices=*
+  #zull.ignoredPatterns=/toll/1
+  #zull.prefix=/api
+
+#-----------------------------------------------------------------Eureka
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:9002/eureka}
+    healthcheck:
+      enabled: true
+
