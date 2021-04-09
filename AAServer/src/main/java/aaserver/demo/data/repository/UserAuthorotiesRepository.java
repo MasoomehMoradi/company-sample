@@ -2,7 +2,7 @@ package aaserver.demo.data.repository;
 
 
 
-import com.tosantechno.authorizationserver.data.entity.UserAuthorities;
+import aaserver.demo.data.entity.UserAuthorities;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

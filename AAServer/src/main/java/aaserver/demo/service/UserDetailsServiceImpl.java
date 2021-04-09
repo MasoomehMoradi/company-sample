@@ -2,11 +2,11 @@ package aaserver.demo.service;
 
 
 
-import com.tosantechno.authorizationserver.data.entity.Authoroties;
-import com.tosantechno.authorizationserver.data.entity.CustomUser;
-import com.tosantechno.authorizationserver.data.entity.UserAuthorities;
-import com.tosantechno.authorizationserver.data.repository.UserAuthorotiesRepository;
-import com.tosantechno.authorizationserver.data.repository.UserRepository;
+import aaserver.demo.data.entity.Authoroties;
+import aaserver.demo.data.entity.CustomUser;
+import aaserver.demo.data.entity.UserAuthorities;
+import aaserver.demo.data.repository.UserAuthorotiesRepository;
+import aaserver.demo.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
